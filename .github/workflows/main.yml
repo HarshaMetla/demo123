@@ -36,7 +36,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image of sqlmap
-      run: docker build -f Dockerfile_sqlmap -t sqlmap
+      run: docker build -f Dockerfile_sqlmap .
     - name: uploading
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
