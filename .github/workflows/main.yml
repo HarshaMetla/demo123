@@ -46,6 +46,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
  
  job_3:
+   name: docker build
    needs: job_1
    runs-on: ubuntu-latest
    steps:
