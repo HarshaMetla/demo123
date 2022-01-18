@@ -31,11 +31,12 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
  job_2:
     name: docker build sqlmap
+    needs: job_1
     runs-on: ubuntu-latests
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image of sqlmap
-      run: docker build -f Dockerfile_sqlmap -t sqlmapimage
+      run: docker build -f Dockerfile_sqlmap .
     - name: uploading
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
