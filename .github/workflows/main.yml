@@ -34,7 +34,7 @@ jobs:
          docker ps -a
       - name: Run a sqlmap docker file
         run: |
-          docker build -t sqlmapimage Dockerfile_sqlmap
+          docker build -f sqlmapimage Dockerfile_sqlmap
           docker run sqlmapimage
           docker ps -a
       # Runs a set of commands using the runners shell
