@@ -44,4 +44,16 @@ jobs:
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+ job_3:
+   name: docker build
+   needs: job_2
+   runs-on: ubuntu-latest
+   steps:
+    - uses: JimCronqvist/action-ssh@master
+    - name: Execute SSH commmands on remote server
+      with:
+       hosts: 'tcs@10.138.77.82'
+       privateKey: ${{ secrets.PRIVATE_KEY }}
+       command: ls -lah
+
  
